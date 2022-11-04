@@ -1,3 +1,5 @@
+#include <nacl.h>
+
 #include "GPS.h"
 #include "MeshRadio.h"
 #include "MeshService.h"

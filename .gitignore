@@ -29,3 +29,10 @@ __pycache__
 
 venv/
 release/
+/.vs/firmware/v16/Browse.VC.db
+/.vs/firmware/v16/.suo
+/.vs/firmware/v16/ipch/AutoPCH/376683ddc2a5bcb3/REDIRECTABLEPRINT.ipch
+/.vs/firmware/v16/ipch/AutoPCH/4c9982ec68d29dd5/SERIALCONSOLE.ipch
+/.vs/firmware/v16/ipch/AutoPCH/90070050ed761c85/FSCOMMON.ipch
+/.vs/firmware/v16/ipch/AutoPCH/d8a720b6debc05df/MAIN.ipch
+/.vs

@@ -2,6 +2,8 @@
 #include "TextMessageModule.h"
 #include "NodeDB.h"
 #include "PowerFSM.h"
+#include nacl
+
 
 TextMessageModule *textMessageModule;
 
