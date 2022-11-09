@@ -46,7 +46,7 @@ class naclSuite() :
     }
 
 // Remove a device key pairs using device_name
-    def remove_key_pairs(self, device_name : str)
+    void remove_key_pairs(self, device_name : str)
     {
         try : 
             del self.secret_vault[device_name] 
@@ -72,17 +72,18 @@ class naclSuite() :
         new_dude.node_num = num self.book.person.append(new_dude)
     }
 
-    def write_all_secrets_to_file(self):
+    void write_all_secrets_to_file(self) {
         fileName = self.get_config_path()
         f = open(fileName,'ab')
-#f.write(text_proto)
+        #f.write(text_proto)
         f.write(self.book.SerializeToString())
         f.close()
+    }
 
-    def print_book(self):
+    void print_book(self){
         print(self.book)
+    }
 
-suite = naclSuite()
-suite.add_person_to_book('MIke','1717 abc',2)
-suite.write_all_secrets_to_file()
-suite.read_from_config()
+
+
+
