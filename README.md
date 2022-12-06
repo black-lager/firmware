@@ -1,18 +1,57 @@
-# Meshtastic Firmware
+# Supported Hardware
 
-![GitHub release downloads](https://img.shields.io/github/downloads/meshtastic/firmware/total)
-[![CI](https://img.shields.io/github/workflow/status/meshtastic/firmware/CI?label=actions&logo=github&color=yellow)](https://github.com/meshtastic/firmware/actions/workflows/main_matrix.yml)
-[![CLA assistant](https://cla-assistant.io/readme/badge/meshtastic/firmware)](https://cla-assistant.io/meshtastic/firmware)
-[![Fiscal Contributors](https://opencollective.com/meshtastic/tiers/badge.svg?label=Fiscal%20Contributors&color=deeppink)](https://opencollective.com/meshtastic/)
-[![Vercel](https://img.shields.io/static/v1?label=Powered%20by&message=Vercel&style=flat&logo=vercel&color=000000)](https://vercel.com?utm_source=meshtastic&utm_campaign=oss)
+Supported hardware
+- LILYGO Lora v2.1-1.6
+- LILYGO T-Beam
+- Note: Other models listed at [here](https://meshtastic.org/docs/supported-hardware) may also work, but they have not been tested with the Black Lager firmware or application
 
-## Overview
+## Installation
+### Install Prerequisite Software
+Check if you have python3 and pip installed with the following command
 
-This repository contains the device firmware for the Meshtastic project.
+```bash
+python3 --version
+pip3 --version
+```
 
-**[Building Instructions](https://meshtastic.org/docs/developers/Firmware/build)**
-**[Flashing Instructions](https://meshtastic.org/docs/getting-started/flashing-firmware/)**
+If python3 is not installed, install with
 
-## Stats
+```bash
+sudo apt-get update
+sudo apt-get install python3
+```
+Install esptool
+```bash
+pip3 install --upgrade esptool
+```
+Test if esptool is working
+```bash
+esptool chip_id
+```
+```bash
+# You should see a result similar to this:
+mydir$ esptool chip_id
+esptool.py v2.6
+Found 2 serial ports
+Serial port /dev/ttyUSB0
+Connecting....
+Detecting chip type... ESP32
+Chip is ESP32D0WDQ6 (revision 1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+MAC: 24:6f:28:b5:36:71
+Uploading stub...
+Running stub...
+Stub running...
+Warning: ESP32 has no Chip ID. Reading MAC instead.
+MAC: 24:6f:28:b5:36:71
+Hard resetting via RTS pin...
+```
 
-![Alt](https://repobeats.axiom.co/api/embed/a92f097d9197ae853e780ec53d7d126e545629ab.svg "Repobeats analytics image")
+Next step is to locate the firmware file you have downloaded, and open the directory in terminal. Run the code below to flash the firmware on your device.
+
+```bash
+bin/device-install.sh -f FIRMWARE_PATH.bin
+```
+
+# Developers
+Hello fellow programmers and developers, you might wonder how can I build a customized version of firmware so I can develop on top of the Meshtastic firmware. You can follow the [instruction](https://meshtastic.org/docs/development/firmware/build) here to build your own version.
