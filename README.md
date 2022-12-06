@@ -7,18 +7,11 @@ Supported hardware
 
 ## Installation
 ### Install Prerequisite Software
-Check if you have python3 and pip installed with the following command
+Python3 and pip are required for Black-Lager. Check if you have python3 and pip installed with the following command, if not please install them.
 
 ```bash
 python3 --version
 pip3 --version
-```
-
-If python3 is not installed, install with
-
-```bash
-sudo apt-get update
-sudo apt-get install python3
 ```
 Install esptool
 ```bash
