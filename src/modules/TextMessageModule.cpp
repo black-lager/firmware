@@ -5,9 +5,6 @@
 
 TextMessageModule *textMessageModule;
 
-/**
- * Text messaging module with public key signed messages.
- */
 ProcessMessage TextMessageModule::handleReceived(const MeshPacket &mp)
 {
     auto &p = mp.decoded;
