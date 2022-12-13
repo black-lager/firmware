@@ -78,4 +78,36 @@ Note: Be careful to install the correct firmware for your device.
 
 ## Developers
 
-Hello fellow programmers and developers, you might wonder how can I build a customized version of firmware so I can develop on top of the Meshtastic firmware. You can follow the [instruction](https://meshtastic.org/docs/development/firmware/build) here to build your own version.
+This repository is forked from the [Meshtastic firmware](https://github.com/meshtastic/firmware) repository. The main branch is the default branch for Black Lager development, while the master branch is used to sync updates from the Meshtastic repo.
+
+### Development Environment
+
+PlatformIO is used as a development environment for the firmware.
+
+1. Instructions on how to install PlatformIO can be [found here](https://platformio.org/platformio-ide).
+
+2. Clone the Meshtastic Firmware repository
+
+```bash
+git clone https://github.com/black-lager/firmware.git
+```
+
+or
+
+```bash
+git clone git@github.com:black-lager/firmware.git
+```
+
+3. Protocol buffer messages are defined in a central [protobufs repository](https://github.com/black-lager/protobufs). To update the repository's submodules, run the following command inside of the firmware repo:
+
+```bash
+git submodule update --init
+```
+
+### Local Build Instructions
+
+To build a custom version of the firmware after making changes to the firmware code, follow the [instructions here](https://meshtastic.org/docs/development/firmware/build). Devices can be flashed with this build for testing.
+
+### CI/CD
+
+The main branch of this repo is protected. In order to push code to main, you must make a pull request which must pass code review. Automatic CI/CD is set up to make a new release of the firmware when code is pushed to the main branch. This is automated through GitHub actions.
