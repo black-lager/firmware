@@ -75,7 +75,7 @@ jobs:
         id: version
 
       - name: Move files up
-        run: mv -b -t ./ ./*tbeam-2*/littlefs*.bin ./*tbeam-2*/bleota.bin ./**/firmware*.bin ./**/firmware-*.uf2 ./**/*.elf
+        run: mv -b -t ./ ./**/firmware*.bin ./**/*.elf
 
       - name: Repackage in single firmware zip
         uses: actions/upload-artifact@v3
