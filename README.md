@@ -3,6 +3,7 @@
 ## Overview
 
 This repository contains the device firmware for the Black Lager project.
+In order to use the Black Lager messaging application, you must flash one of the supported devices with the firmware found in this repo.
 
 ## Supported Hardware
 
@@ -55,12 +56,26 @@ MAC: 24:6f:28:b5:36:71
 Hard resetting via RTS pin...
 ```
 
-Next step is to locate the firmware file you have downloaded, and open the directory in terminal. Run the code below to flash the firmware on your device.
+### Download the Firmware
+
+Download the latest release from this repository. Unzip the firmware zip file.
+
+### Navigate to Firmware
+
+`cd` into the directory where you unzipped the latest release. For example:
+
+```bash
+cd ~/Downloads/firmware/
+```
+
+### Install Firmware
 
 ```bash
 bin/device-install.sh -f FIRMWARE_PATH.bin
 ```
 
-# Developers
+Note: Be careful to install the correct firmware for your device.
+
+## Developers
 
 Hello fellow programmers and developers, you might wonder how can I build a customized version of firmware so I can develop on top of the Meshtastic firmware. You can follow the [instruction](https://meshtastic.org/docs/development/firmware/build) here to build your own version.
