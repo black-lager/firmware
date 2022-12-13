@@ -107,7 +107,7 @@ jobs:
         id: version
 
       - name: Move files up
-        run: mv -b -t ./ ./**/firmware*.bin ./**/*.elf
+        run: mv -b -t ./ ./**/firmware*.bin ./**/*.elf ./*native*/*device-*.sh ./*native*/*device-*.bat
 
       - name: Repackage in single firmware zip
         uses: actions/upload-artifact@v3
