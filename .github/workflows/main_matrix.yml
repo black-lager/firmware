@@ -45,6 +45,38 @@ jobs:
     uses: ./.github/workflows/build_esp32.yml
     with:
       board: ${{ matrix.board }}
+      
+  build-native:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build base
+        id: base
+        uses: ./.github/actions/setup-base
+
+      # We now run integration test before other build steps (to quickly see runtime failures)
+      - name: Build for native
+        run: platformio run -e native
+      - name: Integration test
+        run: |
+          .pio/build/native/program &
+          sleep 20 # 5 seconds was not enough
+          echo "Simulator started, launching python test..."
+          python3 -c 'from meshtastic.test import testSimulator; testSimulator()'
+      - name: Build Native
+        run: bin/build-native.sh
+
+      - name: Get release version string
+        run: echo "version=$(./bin/buildinfo.py long)" >> $GITHUB_OUTPUT
+        id: version
+
+      - name: Store binaries as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware-native-${{ steps.version.outputs.version }}.zip
+          path: |
+            release/device-*.sh
+            release/device-*.bat
 
   after-checks:
     runs-on: ubuntu-latest
